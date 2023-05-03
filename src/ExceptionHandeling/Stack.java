@@ -18,7 +18,7 @@ public class Stack {
     }
 
     static void pop() throws Exception
-    { 
+    {
         if(Top==-1)
             throw new UnderflowException();
         Top--;
