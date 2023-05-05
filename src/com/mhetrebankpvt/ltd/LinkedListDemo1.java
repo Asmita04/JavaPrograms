@@ -1,6 +1,4 @@
-package JavaCollections;
-
-import java.util.*;
+package com.mhetrebankpvt.ltd;
 
 public class LinkedListDemo1 {
     class Node {

@@ -1,9 +1,6 @@
 package BankingApplication;
 
 
-import JavaCollections.LinkedListDemo1;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 public class BankMainMenu {
 

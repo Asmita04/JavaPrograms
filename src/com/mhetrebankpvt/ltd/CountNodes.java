@@ -1,4 +1,4 @@
-package JavaCollections;
+package com.mhetrebankpvt.ltd;
 
 public class CountNodes {
 
