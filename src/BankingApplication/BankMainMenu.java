@@ -1,106 +1,48 @@
 package BankingApplication;
+import java.util.*;
 
-
+import java.sql.SQLOutput;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
-public class BankMainMenu {
+class User {
 
-
-
-    static class Node {
-
-    public String UserName;
+    public String userName;
     public String DOB;
-    public long MobileNo;
-    public long RegistrationNo;
-    public long AccountNo;
-    public int Balance;
-    Node next;
+    public long mobileNo;
+    public int registrationNo;
+    public String accountNo;
+    public int balance;
 
-    public Node(String UserName,String DOB,long MobileNo,long RegistrationNo,long AccountNo,int Balance) {
-            this. UserName = UserName;
-            this. DOB = DOB;
-            this. MobileNo = MobileNo;
-            this. RegistrationNo = RegistrationNo;
-            this. AccountNo = AccountNo;
-            this. Balance = Balance;
-            this.next=null;
-        }
-
+    public User(){}
+    public User(String accountNo, String userName, String DOB, long mobileNo, int registrationNo ,int balance) {
+        this.userName = userName;
+        this.DOB = DOB;
+        this.mobileNo = mobileNo;
+        this.registrationNo = registrationNo;
+        this.accountNo = accountNo;
+        this.balance = balance;
 
     }
-    public Node head = null;
-    public void addFirst(String UserName,String DOB,long MobileNo,long RegistrationNo,long AccountNo,int Balance)
-    {
-        BankMainMenu.Node newNode= new Node(UserName, DOB, MobileNo, RegistrationNo, AccountNo, Balance);
-        if(head == null)
-        {
-
-            head =newNode;
-            return;
-        }
-        newNode.UserName=UserName;
-        newNode.RegistrationNo=RegistrationNo;
-        newNode.AccountNo=AccountNo;
-        newNode.Balance=Balance;
-        newNode.next= head;
-        head = newNode;
-    }
-    public void display() {
-        BankMainMenu.Node current = head;
-        if(head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-        System.out.println("User name\t\t"+"DOB\t\t"+"Mobile No \t\t" + "Account No\t\t"+"Registration No\t\t"+"Balance\t\t");
-        while(current != null) {
-            //Prints each node by incrementing pointer
-            System.out.print(current.UserName+ "    "+current.DOB+"      "+current.MobileNo+"    "+current.AccountNo+"       "+current.RegistrationNo+"      "+current.Balance+"\t\n");
-            current = current.next;
-        }
-        System.out.println("\n\n");
-    }
-    void deleteNode(long AccountNo)
-    {
-        // Store head node
-        BankMainMenu.Node temp = head, prev = null;
-
-        // If head node itself holds the key to be deleted
-        if (temp != null && temp.AccountNo == AccountNo) {
-            head = temp.next; // Changed head
-            return;
-        }
-
-        // Search for the key to be deleted, keep track of
-        // the previous node as we need to change temp.next
-        while (temp != null && temp.AccountNo != AccountNo) {
-            prev = temp;
-            temp = temp.next;
-        }
-
-        // If key was not present in linked list
-        if (temp == null)
-
-            return;
-
-        // Unlink the node from linked list
-        prev.next = temp.next;
-    }
+}
+public class bankMainMenu{
 
 
 
     public static void main(String[] args) {
 
         int Choice;
-        String UserName ;
+        String userName ;
         String DOB;
-        long MobileNo;
-        long RegistrationNo;
-        long AccountNo;
-        int Balance;
+        long mobileNo;
+        int registrationNo;
+        String accountNo;
+        int balance;
         System.out.println("Welcome to MHETRE's Bank Pvt Ltd!!");
         Scanner scan = new Scanner(System.in);
-
-        BankMainMenu menu =new BankMainMenu();
+        User account = new User();
+        HashMap<String, User> map= new HashMap<String,User>();
+        //   Iterator<user> it = obj.iterator();
 
         do {
             System.out.println("1.Register User");
@@ -114,46 +56,64 @@ public class BankMainMenu {
             switch (Choice) {
                 case 1: {
 
-               //   BankMainMenu. Node obj = new  BankMainMenu().Node( );
-                    // = Node("Asmita","4/1/1",587496,568989,748545,963852741);
 
-                        System.out.println("Enter name:");
-                         scan.nextLine();
-                        UserName = scan.nextLine();
+                    System.out.println("Enter name:");
+                    scan.nextLine();
+                    userName = scan.nextLine();
 
 
-                        System.out.println("Enter DOB:");
-                        DOB = scan.nextLine();
+                    System.out.println("Enter DOB:");
+                    DOB = scan.nextLine();
 
-                        System.out.println("Enter Mobile:");
-                        MobileNo = scan.nextLong();
+                    System.out.println("Enter Mobile:");
+                    mobileNo = scan.nextLong();
 
-                        System.out.println("Enter Account:");
-                        AccountNo = scan.nextLong();
+                    System.out.println("Enter Account:");
+                    scan.nextLine();
+                    accountNo = scan.nextLine();
 
-                        System.out.println("Enter Registration No:");
-                        RegistrationNo = scan.nextLong();
+                    System.out.println("Enter Registration No:");
+                    registrationNo = scan.nextInt();
 
-                        System.out.println("Enter Balance:");
-                        Balance = scan.nextInt();
+                    System.out.println("Enter Balance:");
+                    balance = scan.nextInt();
 
-                        menu.addFirst(UserName, DOB, MobileNo, RegistrationNo, AccountNo, Balance);
-                    }
+                    account = new User(accountNo,userName,DOB,mobileNo,registrationNo,balance);
+                    map.put(accountNo, account);
+                    break;
 
-                         break;
+                }
+
                 case 2: {
 
-                        System.out.println("Enter Account number to remove from list");
-                        AccountNo=scan.nextLong();
+                    System.out.println("Enter Account number to remove from list");
+                    scan.nextLine();
+                    accountNo=scan.nextLine();
+                    if(map.containsKey(accountNo))
+                    {
+                        map.remove(accountNo);
+                        System.out.println("1 Account Deleted!");
+                    }
+                    else
+                    {
+                        System.out.println("Account is not present!");
+                    }
 
-                        menu.deleteNode(AccountNo);
+
+                    break;
 
                 }
                 case 3: {
 
                 }
                 case 4: {
-                    menu.display();
+                    System.out.println("Account No: \t\t"+"User Name: \t\t" + "DOB\t\t"+"Mobile No:\t\t"+"Registration No\t\t"+"Balance\t\n");
+                    for(Map.Entry<String,User> entry:map.entrySet()){
+                        User account1=entry.getValue();
+                        System.out.println(account1.accountNo+"  \t"+account1.userName+"  \t  "+account1.DOB+"  \t "+account1.mobileNo+"  \t"+account1.registrationNo+"  \t"+account1.balance+"  \t\n");
+                    }
+
+                    break;
 
                 }
                 case 5: {
