@@ -1,4 +1,4 @@
-package com.mhetrebankpvt.ltd;
+package com.collectionFramework.ltd;
 import java.util.*;
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.mhetrebankpvt.ltd;
+package com.collectionFramework.ltd;
 
 public class LinkedListDemo1 {
     class Node {

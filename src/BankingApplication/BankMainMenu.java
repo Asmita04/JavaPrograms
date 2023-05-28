@@ -1,9 +1,6 @@
-package BankingApplication;
+package bankingApplication;
 import java.util.*;
 
-import java.sql.SQLOutput;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Scanner;
 class User {
 
@@ -24,24 +21,44 @@ class User {
         this.balance = balance;
 
     }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", DOB='" + DOB + '\'' +
+                ", mobileNo=" + mobileNo +
+                ", registrationNo=" + registrationNo +
+                ", accountNo='" + accountNo + '\'' +
+                ", balance=" + balance +
+                '}'+'\n';
+    }
 }
-public class bankMainMenu{
+public class BankMainMenu{
 
 
 
     public static void main(String[] args) {
 
         int Choice;
-        String userName ;
-        String DOB;
-        long mobileNo;
-        int registrationNo;
-        String accountNo;
-        int balance;
+        String userName=null ;
+        String DOB=null;
+        long mobileNo=0;
+        int registrationNo=0;
+        String accountNo = null;
+        int balance=0;
         System.out.println("Welcome to MHETRE's Bank Pvt Ltd!!");
         Scanner scan = new Scanner(System.in);
         User account = new User();
-        HashMap<String, User> map= new HashMap<String,User>();
+        Map<String, User> map= new HashMap<String,User>();
         //   Iterator<user> it = obj.iterator();
 
         do {
@@ -104,18 +121,53 @@ public class bankMainMenu{
 
                 }
                 case 3: {
+                    System.out.println("Enter account to which you wanted to send money:");
+                    scan.nextLine();
+                    String receiverAccount = scan.nextLine();
+
+                    System.out.println("Enter payee account number:");
+                    String senderAccount = scan.nextLine();
+
+                    System.out.println("\nEnter Amount: ");
+                    int dAmount = scan.nextInt();
+
+                    User sender= map.get(senderAccount);
+                    User receiver = map.get(receiverAccount);
+                    if(sender.getBalance()>=dAmount){
+                        sender.setBalance(sender.getBalance() - dAmount);
+                        receiver.setBalance(receiver.getBalance() + dAmount);
+
+                    }
+                    else{
+                        System.out.println("Insufficient Balance!");
+                    }
+                    map.put(senderAccount,sender);
+                    map.put(receiverAccount,receiver);
+//
+//
+//                    if(map.containsKey(debitAccount))
+//                    {
+//                        balance= (balance+dAmount);
+//                     //   System.out.println("Total balance Updated"+(balance+dAmount));
+//
+//                       map.put(debitAccount,account);
+//                        System.out.println("credited!");
+//
+//                    }
+//
 
                 }
                 case 4: {
-                    System.out.println("Account No: \t\t"+"User Name: \t\t" + "DOB\t\t"+"Mobile No:\t\t"+"Registration No\t\t"+"Balance\t\n");
-                    for(Map.Entry<String,User> entry:map.entrySet()){
-                        User account1=entry.getValue();
-                        System.out.println(account1.accountNo+"  \t"+account1.userName+"  \t  "+account1.DOB+"  \t "+account1.mobileNo+"  \t"+account1.registrationNo+"  \t"+account1.balance+"  \t\n");
+                    System.out.println(map);
+//                    System.out.println("Account No: \t\t"+"User Name: \t\t" + "DOB\t\t"+"Mobile No:\t\t"+"Registration No\t\t"+"Balance\t\n");
+//                    for(Map.Entry<String,User> entry:map.entrySet()){
+//                        User account1=entry.getValue();
+//                        System.out.println(account1.accountNo+"  \t"+account1.userName+"  \t  "+account1.DOB+"  \t "+account1.mobileNo+"  \t"+account1.registrationNo+"  \t"+account1.balance+"  \t\n");
                     }
 
                     break;
 
-                }
+
                 case 5: {
 
                     System.out.println("Exit!");

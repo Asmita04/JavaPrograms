@@ -1,4 +1,4 @@
-package BankingApplication;
+package bankingApplication;
 
 class Subject
 {
