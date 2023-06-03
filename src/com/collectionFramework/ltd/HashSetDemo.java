@@ -1,21 +1,24 @@
 package com.collectionFramework.ltd;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 import java.util.Iterator;
 
 public class HashSetDemo {
     public static void main(String[] args) {
-      /*  HashSet<Integer> set1= new HashSet<Integer>();
-        set1.add(23);
-        set1.add(15);
-        set1.add(16);
-        set1.add(10);
-        set1.add(15);
+       HashSet<String> set1= new HashSet<String>(10);
+        set1.add("a");
+        set1.add("k");
+        set1.add("d");
+        set1.add("c");
+        set1.add("b");
 
         System.out.println("size is:"+set1.size());
-        System.out.println(set1);*/
+        System.out.println(set1);
 
-        HashSet<ArrayList> set = new HashSet<ArrayList>();
+
+   //     set1.forEach(System.out::println);
+
+      /*  HashSet<ArrayList> set = new HashSet<ArrayList>();
         ArrayList<Integer>  list1 = new ArrayList<Integer>();
         ArrayList<Integer> list2 = new ArrayList<Integer>();
 
@@ -50,7 +53,7 @@ public class HashSetDemo {
 
 
 
-
+*/
 
     }
 }

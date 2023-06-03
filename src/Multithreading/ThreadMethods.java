@@ -4,7 +4,7 @@ class MyThread extends Thread{
     {
         super(Name);
         //void setDaemon(boolean );
-        setPriority(Thread.MAX_PRIORITY);
+      //  setPriority(Thread.MAX_PRIORITY);
       //  setPriority(Thread.MIN_PRIORITY);    //1
     //    setPriority(Thread.NORM_PRIORITY);
     }
@@ -18,7 +18,7 @@ public class ThreadMethods {
         System.out.println("Priority:"+obj.getPriority());
         System.out.println("Alive: "+obj.isAlive());
         System.out.println("Daemon: "+obj.isDaemon());
-        System.out.println("Is interrupt]ted: "+obj.isInterrupted());
+        System.out.println("Is interrupted: "+obj.isInterrupted());
 
         obj.stop();
         System.out.println("State: "+obj.getState());
