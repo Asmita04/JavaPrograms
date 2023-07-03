@@ -18,11 +18,12 @@ public class HashMapDemo {
         map1.put(E2.getEmpid(), E2);
         map1.put(E3.getEmpid(), E3);
         map1.put(E4.getEmpid(), E4);
-
       //  map1.remove("119");
 
         //map1.remove("119","Asmita",5608000);
         System.out.println( map1.keySet());
+        System.out.println(map1);
+        System.out.println("get method:"+map1.containsKey(E1.getEmpid()));
 
 
     }
