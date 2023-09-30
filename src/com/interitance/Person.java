@@ -7,6 +7,11 @@ public class Person  {
     public String Name;
     public String DateOfBirth;
     public int Age;
+    {
+        Name="Asmita";
+        System.out.println("Initilaizer block!");
+
+    }
 
     //Default
     public Person(){

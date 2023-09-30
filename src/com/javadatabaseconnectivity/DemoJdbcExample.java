@@ -1,7 +1,6 @@
 package com.javadatabaseconnectivity;
 
 
-import org.sqlite.jdbc4.JDBC4ResultSet;
 
 import java.sql.*;
 import java.util.*;

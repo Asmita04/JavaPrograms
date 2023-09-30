@@ -11,10 +11,14 @@ public class CubeRoot {
 
             if(temp == i*i)
             {
+                System.out.println("i:"+i);
                 return i;
             }
+
         }
         return 0;
+
+
     }
     public static void main(String[] args) {
         int num1;
@@ -23,7 +27,7 @@ public class CubeRoot {
         System.out.println("Enter  number:");
         num1=scan.nextInt();
 
-        System.out.println( CbRoot(num1));
+        System.out.println("Cube root"+ CbRoot(num1));
 
 
 

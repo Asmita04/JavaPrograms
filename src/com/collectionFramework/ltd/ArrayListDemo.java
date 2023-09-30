@@ -28,14 +28,13 @@ public class ArrayListDemo {
        // obj.addAll
 
 
-        ArrayList<Integer> list2=new ArrayList<Integer>();
-        list2.add(2);
-        list2.add(12);
-        list2.add(13);
-        list2.add(4);
-        list2.add(11);
+        ArrayList<String> list2=new ArrayList<>();
+        list2.add(0,"Ajinkya");
 
-        Iterator<Integer> it = list2.iterator();
+        list2.add(2,"Asmita");
+
+
+        Iterator<String> it = list2.iterator();
         System.out.println("Second list:");
         while(it.hasNext())
         {
@@ -44,12 +43,15 @@ public class ArrayListDemo {
        // list2.removeAll(obj);
 
 
+
       // ArrayList<Integer> obj2=new ArrayList<Integer>(List.of(4,5,6,7,8));
        /* for(Integer X: obj  )
         {
             System.out.println(X);
         }*/
    //     System.out.println(obj.isEmpty());
+
+
 
     }
 }

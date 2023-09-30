@@ -19,9 +19,8 @@ public class ShapeDemo {
         Square sq=new Square(1);
         System.out.println("Area:"+sq.area());
         System.out.println("Perimeter:"+sq.perimeter());
-        System.out.println(sq.method2());
-        System.out.println(sq.method1());
 
+        System.out.println("A:"+sq.A);
 
 
 
